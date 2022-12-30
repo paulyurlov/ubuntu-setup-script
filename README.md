@@ -2,6 +2,8 @@
 
 ![](/img/desktop.png)
 
+---
+
 **Features:**
 
 * Fish shell set as default shell
@@ -12,7 +14,9 @@
 
 * Install Curl, Git, unzip
 
+* Install Conky
 
+<br>
 
 **Used themes:**
 
@@ -23,8 +27,10 @@
 * Reversal theme as Icon theme
 
 * Vimix-Cursors as Cursor theme
+  
+* Graffias Theme for Conky
 
-
+<br>
 
 **Used Gnome Extensions:**
 
@@ -32,7 +38,7 @@
 
 * Dash to Dock
 
-
+<br>
 
 **Instruction:**
 

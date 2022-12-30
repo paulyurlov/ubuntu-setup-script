@@ -1,4 +1,5 @@
 #!/bin/bash
+
 user=$(whoami)
 echo "Hi, $user! Please enter your password on the next step =)"
 
@@ -56,6 +57,18 @@ gsettings set org.gnome.desktop.interface icon-theme "Reversal-orange-dark"
 
 # Load dconf settings
 dconf load / <my-dconf-settings.ini
+
+# Install Conky
+sudo apt install conky-all curl jq imagemagick
+
+# Setup Conky Theme #f26d0a ff8c00
+mkdir ~/.config/conky
+cp -R Graffias_custom ~/.config/conky/
+cp start_conky.desktop ~/.config/autostart/
+cd ~/.config/conky/Graffias_custom/
+chmod +x change-color.sh
+./change-color.sh ff8c00
+cd ~
 
 # Clear installation files
 rm -rf Orchis-theme
