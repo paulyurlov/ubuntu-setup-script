@@ -59,7 +59,8 @@ gsettings set org.gnome.desktop.interface icon-theme "Reversal-orange-dark"
 dconf load / <my-dconf-settings.ini
 
 # Install Conky
-sudo apt install conky-all curl jq imagemagick
+sudo apt install conky-all curl jq imagemagick python3-pip
+pip install geocoder yaweather geopy
 
 # Setup Conky Theme #f26d0a ff8c00
 mkdir ~/.config/conky
