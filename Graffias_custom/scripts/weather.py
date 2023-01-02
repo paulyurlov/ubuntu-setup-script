@@ -11,7 +11,7 @@ import logging
 
 logger = logging.getLogger('weather_script')
 logger.setLevel(logging.INFO)
-fh = logging.FileHandler('weather.log', mode='w')
+fh = logging.FileHandler('~/.config/conky/Graffias/weather.log', mode='w')
 fh.setLevel(logging.INFO)
 logger.addHandler(fh)
 logger.info('Started script')
@@ -19,7 +19,7 @@ logger.info('Started script')
 
 def check_internet():
     works = False
-    for _ in range(3):
+    for _ in range(10):
         try:
             urllib.request.urlopen("http://google.com")
             works = True
