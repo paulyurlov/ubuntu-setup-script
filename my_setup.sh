@@ -64,9 +64,9 @@ pip install geocoder yaweather geopy
 
 # Setup Conky Theme #f26d0a ff8c00
 mkdir ~/.config/conky
-cp -R Graffias_custom ~/.config/conky/
+cp -R Graffias ~/.config/conky/
 cp start_conky.desktop ~/.config/autostart/
-cd ~/.config/conky/Graffias_custom/
+cd ~/.config/conky/Graffias/
 chmod +x change-color.sh
 ./change-color.sh ff8c00
 cd ~

@@ -1,3 +1,14 @@
+# Ignore everything
+*
+!.gitignore
+!Graffias
+!change-color.sh
+!my-dconf-settings.ini
+!start_conky.desktop
+!img
+!my_setup.sh
+!README.md
+
 Graffias_custom/scripts/config.py
 .ipynb_checkpoints
 __pycache__

@@ -17,8 +17,7 @@
 * Install Conky
 
 <br>
-\
-\
+
 
 **Used themes:**
 
@@ -33,8 +32,7 @@
 * Graffias Theme for Conky
 
 <br>
-\
-\
+
 
 **Used Gnome Extensions:**
 
@@ -43,8 +41,7 @@
 * Dash to Dock
 
 <br>
-\
-\
+
 
 **Instruction:**
 

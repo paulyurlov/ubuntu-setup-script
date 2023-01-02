@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/bin/sh -c "$HOME/.config/conky/Graffias_custom/start.sh"
+Exec=/bin/sh -c "$HOME/.config/conky/Graffias/start.sh"
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
