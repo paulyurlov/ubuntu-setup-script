@@ -13,8 +13,27 @@ sudo apt install flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Setup fish shell as default
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt update
 sudo apt install fish
 chsh -s /usr/bin/fish
+
+# Install roboto fonts
+sudo apt install fonts-roboto
+
+# Install oh-my-posh and theme
+
+sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+sudo chmod +x /usr/local/bin/oh-my-posh
+mkdir ~/.poshthemes
+wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+chmod u+rw ~/.poshthemes/*.omp.*
+rm ~/.poshthemes/themes.zip
+cp my-posh-config.json ~/.config/fish/
+echo "oh-my-posh init fish --config ~/.config/fish/my-posh-config.json | source" >~/.config/fish/config.fish
+exec fish
+oh-my-posh font install RobotoMono
 
 # Prepare for theme installation
 sudo apt install curl gnome-shell-extensions git unzip gnome-tweaks
