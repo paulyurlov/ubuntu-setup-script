@@ -9,6 +9,7 @@ import time
 import logging
 
 
+# Настраиваем logger
 logger = logging.getLogger('weather_script')
 logger.setLevel(logging.INFO)
 fh = logging.FileHandler('~/.config/conky/Graffias/weather.log', mode='w')
