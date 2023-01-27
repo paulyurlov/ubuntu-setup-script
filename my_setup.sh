@@ -100,26 +100,6 @@ gsettings set org.gnome.desktop.interface icon-theme "Reversal-orange-dark"
 # Load dconf settings
 dconf load / <my-dconf-settings.ini
 
-# Install Conky
-echo "Setup conky"
-sudo apt install conky-all curl jq imagemagick python3-pip
-pip install geocoder yaweather geopy
-
-# Setup Conky Theme #f26d0a ff8c00
-mkdir ~/.config/conky
-cp -R Graffias ~/.config/conky/
-cd ~/.config/conky/Graffias/
-chmod +x change-color.sh
-./change-color.sh ff8c00
-cd ~
-
-# Clear installation files
-rm -rf Orchis-theme
-rm -rf WhiteSur-gtk-theme
-rm -rf Reversal-icon-theme
-rm -rf Vimix-cursors
-rm -rf my-dconf-settings.ini
-
 printf "\n\n"
 # Install Anaconda
 read -n 1 -p "Do uou want to install Anaconda (y/n)? " answer
@@ -173,6 +153,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 
 
 sudo apt autoremove
+dconf load / <my-dconf-settings.ini
 
 # Reboot part
 read -n 1 -p "Do uou want to reboot to apply settings (y/n)? " answer
