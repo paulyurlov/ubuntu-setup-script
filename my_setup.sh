@@ -43,7 +43,8 @@ sudo oh-my-posh font install RobotoMono
 sudo cp ~/.local/share/fonts/robotomono-nerd-font-mono/Roboto\ Mono\ Nerd\ Font\ Complete\ Mono.ttf /usr/share/fonts/
 
 # Prepare for theme installation
-sudo apt install curl gnome-shell-extensions git unzip gnome-tweaks
+sudo apt install curl git unzip gnome-tweaks
+flatpak install flathub org.gnome.Extensions
 
 # Clone Orchis theme for user shell
 git clone https://github.com/vinceliuice/Orchis-theme.git
