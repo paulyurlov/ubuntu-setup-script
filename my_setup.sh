@@ -37,14 +37,19 @@ chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip
 cp my-posh-config.json ~/.config/fish/
 echo "oh-my-posh init fish --config ~/.config/fish/my-posh-config.json | source" >~/.config/fish/config.fish
-exec fish
 oh-my-posh font install RobotoMono
 sudo oh-my-posh font install RobotoMono
-sudo cp ~/.local/share/fonts/robotomono-nerd-font-mono/Roboto\ Mono\ Nerd\ Font\ Complete\ Mono.ttf /usr/share/fonts/
+sudo cp -a ~/.local/share/fonts/robotomono-nerd-font-mono/. ~/.local/share/fonts/
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/RobotoMono.zip
+unzip RobotoMono.zip -d ~/.local/share/fonts/
 
 # Prepare for theme installation
-sudo apt install curl git unzip gnome-tweaks
+sudo apt install curl git unzip wget jq gnome-tweaks
 flatpak install flathub org.gnome.Extensions
+
+rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./install-gnome-extensions.sh && chmod +x install-gnome-extensions.sh
+./install-gnome-extensions.sh --enable --file extensions.txt
 
 # Clone Orchis theme for user shell
 git clone https://github.com/vinceliuice/Orchis-theme.git
@@ -103,7 +108,6 @@ pip install geocoder yaweather geopy
 # Setup Conky Theme #f26d0a ff8c00
 mkdir ~/.config/conky
 cp -R Graffias ~/.config/conky/
-cp start_conky.desktop ~/.config/autostart/
 cd ~/.config/conky/Graffias/
 chmod +x change-color.sh
 ./change-color.sh ff8c00
@@ -167,10 +171,6 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
   sudo apt update &&
   sudo apt install gh -y
 
-# Install Yandex Browser
-# sudo add-apt-repository "deb https://repo.yandex.ru/yandex-browser/deb stable main"
-# curl https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG --output YANDEX-BROWSER-KEY.GPG
-# sudo apt-key add YANDEX-BROWSER-KEY.GPG
 
 sudo apt autoremove
 
