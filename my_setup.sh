@@ -1,10 +1,13 @@
 #!/bin/bash
 
 user=$(whoami)
-echo "Hi, $user! Please enter your password on the next step =)"
+echo "Hi, $user! Please enter your password: "
+read pass
+export pass
+echo $pass
 
 # Update and upgrade
-sudo apt update
+echo "$pass" | sudo --stdin apt update
 sudo apt upgrade
 
 # Remove snap-store and install gnome-software with flatpak
@@ -34,6 +37,8 @@ cp my-posh-config.json ~/.config/fish/
 echo "oh-my-posh init fish --config ~/.config/fish/my-posh-config.json | source" >~/.config/fish/config.fish
 exec fish
 oh-my-posh font install RobotoMono
+sudo oh-my-posh font install RobotoMono
+sudo cp ~/.local/share/fonts/robotomono-nerd-font-mono/Roboto\ Mono\ Nerd\ Font\ Complete\ Mono.ttf /usr/share/fonts/
 
 # Prepare for theme installation
 sudo apt install curl gnome-shell-extensions git unzip gnome-tweaks
@@ -96,6 +101,22 @@ rm -rf WhiteSur-gtk-theme
 rm -rf Reversal-icon-theme
 rm -rf Vimix-cursors
 rm -rf my-dconf-settings.ini
+
+# Install Anaconda
+curl "https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh"
+read -n 1 -p "Do uou want to install Anaconda (y/n)? " answer
+printf "\n\n"
+if [[ $answer == "y" ]]; then
+  echo "Starting anaconda installation"
+  printf "\n\n"
+  wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+else
+  echo "Skiping anaconda installation"
+fi
+
+# Install VS-code
+sudo snap install code --classic
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/RobotoMono.zip
 
 # Reboot part
 read -n 1 -p "Do uou want to reboot to apply settings (y/n)? " answer

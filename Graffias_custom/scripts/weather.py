@@ -59,6 +59,7 @@ trans = {'clear': 'ясно',
 logger.info('Checking internet')
 con = check_internet()
 logger.info(con)
+
 # Получаем текущий город по ip
 Latitude, Longitude = None, None
 location = None
@@ -71,6 +72,7 @@ try:
 except:
     Latitude, Longitude = 55.7522, 37.6156
 logger.info(f'Got location: {location.raw}')
+
 # Получаем погоду
 url = f'https://api.weather.yandex.ru/v2/informers?lat={str(Latitude)}&lon={str(Longitude)}&[lang=ru_RU]'
 req = requests.get(url=url, headers={'X-Yandex-API-Key': API_KEY})
