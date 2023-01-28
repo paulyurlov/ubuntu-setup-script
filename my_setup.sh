@@ -3,6 +3,7 @@
 user=$(whoami)
 echo "Hi, $user!"
 
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 # Update and upgrade
 sudo apt update
 sudo apt upgrade
@@ -35,60 +36,55 @@ wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/theme
 unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
 chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip
-cp my-posh-config.json ~/.config/fish/
+cp $SCRIPTPATH/my-posh-config.json ~/.config/fish/
 echo "oh-my-posh init fish --config ~/.config/fish/my-posh-config.json | source" >~/.config/fish/config.fish
 oh-my-posh font install RobotoMono
 sudo oh-my-posh font install RobotoMono
 sudo cp -a ~/.local/share/fonts/robotomono-nerd-font-mono/. ~/.local/share/fonts/
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/RobotoMono.zip
-unzip RobotoMono.zip -d ~/.local/share/fonts/
-
 # Prepare for theme installation
 sudo apt install curl git unzip wget jq gnome-tweaks
 flatpak install flathub org.gnome.Extensions
 
-rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./install-gnome-extensions.sh && chmod +x install-gnome-extensions.sh
-./install-gnome-extensions.sh --enable --file extensions.txt
+rm -f $SCRIPTPATH/install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O $SCRIPTPATH/install-gnome-extensions.sh && chmod +x $SCRIPTPATH/install-gnome-extensions.sh
+bash $SCRIPTPATH/install-gnome-extensions.sh --enable --file $SCRIPTPATH/extensions.txt
 
 # Clone Orchis theme for user shell
-git clone https://github.com/vinceliuice/Orchis-theme.git
+git clone https://github.com/vinceliuice/Orchis-theme.git $SCRIPTPATH/Orchis-theme
 
 # Clone WhiteSur theme for main theme
-git clone https://github.com/EliverLara/WhiteSur-gtk-theme.git
+git clone https://github.com/EliverLara/WhiteSur-gtk-theme.git $SCRIPTPATH/WhiteSur-gtk-theme
 
 # Clone Vimix cursor theme
-git clone https://github.com/vinceliuice/Vimix-cursors.git
+t
 
 # Clone Reversal theme for icons
-git clone https://github.com/yeyushengfan258/Reversal-icon-theme.git
+git clone https://github.com/yeyushengfan258/Reversal-icon-theme.git $SCRIPTPATH/Reversal-icon-theme
 
 # Install Orchis theme
 
 echo "Install Orchis theme"
-./Orchis-theme/install.sh -t orange --tweaks compact
+bash $SCRIPTPATH/Orchis-theme/install.sh -t orange --tweaks compact
 
 # Install WhiteSur theme
 
 echo "Install WhiteSur theme"
-./WhiteSur-gtk-theme/install.sh -t orange
+bash $SCRIPTPATH/WhiteSur-gtk-theme/install.sh -t orange
 
 # Connect WhiteSur theme to flatpak
 
 echo "Connect WhiteSur theme to flatpak"
-./WhiteSur-gtk-theme/tweak.sh -F
+bash $SCRIPTPATH/WhiteSur-gtk-theme/tweak.sh -F
 
 # Install Reversal theme
 
 echo "Install Reversal theme"
-./Reversal-icon-theme/install.sh -orange
+bash $SCRIPTPATH/Reversal-icon-theme/install.sh -orange
 
 # Install Vimix theme
 
 echo "Install Vimix theme"
-cd Vimix-cursors
-sudo ./install.sh
-cd ~
+sudo bash $SCRIPTPATH/install.sh
 
 # Enable WhiteSur as main theme
 gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-Dark-solid-orange"
@@ -98,7 +94,7 @@ gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-Dark-solid-orange
 gsettings set org.gnome.desktop.interface icon-theme "Reversal-orange-dark"
 
 # Load dconf settings
-dconf load / <my-dconf-settings.ini
+dconf load / <$SCRIPTPATH/my-dconf-settings.ini
 
 printf "\n\n"
 # Install Anaconda
@@ -109,9 +105,7 @@ if [[ $answer == "y" ]]; then
   printf "\n\n"
   wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
   sudo chmod +x Anaconda3-2022.10-Linux-x86_64.sh
-  ./Anaconda3-2022.10-Linux-x86_64.sh
-  conda init fish
-  conda config --set auto_activate_base false
+  bash Anaconda3-2022.10-Linux-x86_64.sh
 else
   echo "Skiping anaconda installation"
 fi
@@ -151,9 +145,10 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
   sudo apt update &&
   sudo apt install gh -y
 
-
+conda init fish
+conda config --set auto_activate_base false
 sudo apt autoremove
-dconf load / <my-dconf-settings.ini
+dconf load / <$SCRIPTPATH/my-dconf-settings.ini
 
 # Reboot part
 read -n 1 -p "Do uou want to reboot to apply settings (y/n)? " answer

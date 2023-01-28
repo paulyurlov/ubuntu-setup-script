@@ -10,6 +10,8 @@
 !README.md
 !my-posh-config.json
 !extensions.txt
+!audio_switch
+!setup_Keychron_k2.sh
 
 Graffias_custom/scripts/config.py
 .ipynb_checkpoints

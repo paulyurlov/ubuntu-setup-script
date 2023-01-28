@@ -1,4 +1,4 @@
-# Ubuntu Setup Script
+# My Ubuntu Setup Script
 
 ![](/img/desktop.png)
 
@@ -7,14 +7,20 @@
 **Features:**
 
 * Fish shell set as default shell
+  
+* Fish theme using oh-my-posh
 
 * Installed Gnome-Tweaks and Gnome-Extensions
 
 * Replaced Snap-Store with Gnome-Software with Flatpak
 
-* Install Curl, Git, unzip
+* Install Curl, Git, unzip, VS code, Telegram, Discord, WPS office
 
 * Install Conky
+
+* setup_Keychron_k2.sh - enables F1-F12 keys using Keyboard's MacOS mode
+
+* audio_switch - my scripts to set as shortcuts to change audio output device
 
 <br>
 
@@ -29,16 +35,18 @@
 
 * Vimix-Cursors as Cursor theme
   
-* Graffias Theme for Conky
+<!-- * Graffias Theme for Conky -->
 
 <br>
 
 
 **Used Gnome Extensions:**
 
+* User Shell Themes
+
 * Blur my Shell
 
-* Dash to Dock
+* Dash to Panel
 
 <br>
 
@@ -47,6 +55,6 @@
 
 * Run `./my_setup.sh`, it will offer to reboot
 
-* After reboot set Orchis Theme as Shell Theme and Vimix-Cursors as Cursor Theme
+* After reboot run `./final_setup.sh`
 
-* That is all !
+
