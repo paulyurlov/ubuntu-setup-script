@@ -3,7 +3,11 @@
 user=$(whoami)
 echo "Hi, $user!"
 
-SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+SCRIPTPATH="$(
+  cd -- "$(dirname "$0")" >/dev/null 2>&1
+  pwd -P
+)"
+
 # Update and upgrade
 sudo apt update
 sudo apt upgrade
@@ -36,8 +40,6 @@ wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/theme
 unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
 chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip
-cp $SCRIPTPATH/my-posh-config.json ~/.config/fish/
-echo "oh-my-posh init fish --config ~/.config/fish/my-posh-config.json | source" >~/.config/fish/config.fish
 oh-my-posh font install RobotoMono
 sudo oh-my-posh font install RobotoMono
 sudo cp -a ~/.local/share/fonts/robotomono-nerd-font-mono/. ~/.local/share/fonts/
@@ -46,7 +48,8 @@ sudo cp -a ~/.local/share/fonts/robotomono-nerd-font-mono/. ~/.local/share/fonts
 sudo apt install curl git unzip wget jq gnome-tweaks
 flatpak install flathub org.gnome.Extensions
 
-rm -f $SCRIPTPATH/install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O $SCRIPTPATH/install-gnome-extensions.sh && chmod +x $SCRIPTPATH/install-gnome-extensions.sh
+rm -f $SCRIPTPATH/install-gnome-extensions.sh
+wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O $SCRIPTPATH/install-gnome-extensions.sh && chmod +x $SCRIPTPATH/install-gnome-extensions.sh
 bash $SCRIPTPATH/install-gnome-extensions.sh --enable --file $SCRIPTPATH/extensions.txt
 
 # Clone Orchis theme for user shell
