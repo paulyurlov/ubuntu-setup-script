@@ -1,3 +1,4 @@
 https://extensions.gnome.org/extension/19/user-themes/
 https://extensions.gnome.org/extension/3193/blur-my-shell/
 https://extensions.gnome.org/extension/1160/dash-to-panel/
+https://extensions.gnome.org/extension/4651/notification-banner-reloaded/

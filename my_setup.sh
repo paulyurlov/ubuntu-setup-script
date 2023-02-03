@@ -59,7 +59,7 @@ git clone https://github.com/vinceliuice/Orchis-theme.git $SCRIPTPATH/Orchis-the
 git clone https://github.com/EliverLara/WhiteSur-gtk-theme.git $SCRIPTPATH/WhiteSur-gtk-theme
 
 # Clone Vimix cursor theme
-t
+git clone https://github.com/vinceliuice/Vimix-cursors.git $SCRIPTPATH/Vimix-cursors
 
 # Clone Reversal theme for icons
 git clone https://github.com/yeyushengfan258/Reversal-icon-theme.git $SCRIPTPATH/Reversal-icon-theme
@@ -87,7 +87,7 @@ bash $SCRIPTPATH/Reversal-icon-theme/install.sh -orange
 # Install Vimix theme
 
 echo "Install Vimix theme"
-sudo bash $SCRIPTPATH/install.sh
+sudo bash $SCRIPTPATH/Vimix-cursors/install.sh
 
 # Enable WhiteSur as main theme
 gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-Dark-solid-orange"

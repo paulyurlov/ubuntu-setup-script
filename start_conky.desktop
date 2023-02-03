@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Exec=/bin/sh -c "$HOME/.config/conky/Graffias/start.sh"
+Exec=/bin/sh -c "$HOME/.config/conky/Alterf/start.sh"
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
-Name[en_US]=Conky Graffias
-Name=Conky Graffias Startup
-Comment[en_US]=Conky Graffias
-Comment=Conky Graffias
+Name[en_US]=Conky Alterf
+Name=Conky Alterf Startup
+Comment[en_US]=Conky Alterf
+Comment=Conky Alterf
