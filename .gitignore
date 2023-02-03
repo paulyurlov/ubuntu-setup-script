@@ -13,6 +13,7 @@
 !audio_switch
 !setup_Keychron_k2.sh
 !final_setup.sh
+!Komosa
 
 Graffias_custom/scripts/config.py
 .ipynb_checkpoints
