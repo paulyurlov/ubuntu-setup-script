@@ -1,0 +1,3 @@
+This it's my custom version, it's a fusion of Kochab & Mimosa
+
+Original: --> https://github.com/closebox73/Leonis.git <--

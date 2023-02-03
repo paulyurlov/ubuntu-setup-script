@@ -1,20 +1,20 @@
 # Ignore everything
-*
-!.gitignore
-!Graffias
-!change-color.sh
-!my-dconf-settings.ini
-!start_conky.desktop
-!img
-!my_setup.sh
-!README.md
-!my-posh-config.json
-!extensions.txt
-!audio_switch
-!setup_Keychron_k2.sh
-!final_setup.sh
-!Komosa
+# *
+# !.gitignore
+# !Graffias
+# !change-color.sh
+# !my-dconf-settings.ini
+# !start_conky.desktop
+# !img
+# !my_setup.sh
+# !README.md
+# !my-posh-config.json
+# !extensions.txt
+# !audio_switch
+# !setup_Keychron_k2.sh
+# !final_setup.sh
+# !Komosa
 
-Graffias_custom/scripts/config.py
-.ipynb_checkpoints
-__pycache__
+# Graffias_custom/scripts/config.py
+# .ipynb_checkpoints
+# __pycache__
